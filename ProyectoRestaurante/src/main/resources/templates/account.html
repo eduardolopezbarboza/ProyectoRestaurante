@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Cuenta</title>
+</head>
+<body>
+
+<h1>Usuario</h1>
+	<p th:text="'Nombre:' + ${persona.nombre}" />
+	<p th:text="'Apellido:' + ${persona.apellido}" />
+	<p th:text="'Correo:' + ${persona.email}" />
+	<p th:text="'Usuario:' + ${persona.username}" />
+	<a th:href="@{'/person/__${persona.id}__/edit'}">Editar Usuario</a>
+	<a href="/">Inicio</a>
+</body>
+</html>
