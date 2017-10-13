@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<!--  <meta .....> faltaba el /-->
-	<title>Editar Cuenta</title>
+	<title>Crear cuenta</title>
 </head>
 <body style="background-color:#F5DA81;">
 
@@ -41,15 +41,12 @@ li a:hover {
   <li><a href="#">Combos</a></li>
   <li><a href="#">Reservas</a></li>
   <li><a href="#">Contáctenos</a></li>
-  <li><a href="/account">Ver Cuenta</a><br/></li>
+  <li><a href="/signUp">Crear Cuenta</a><br/></li>
 </ul>
 
 <center>
-<h1>Editar Usuario</h1>
-<form action="#" th:action="@{/saveUser}" th:object="${persona}" method="post">
-	
-	<p><input type="hidden" th:field="*{id}"/></p>
-	
+<h1>Crear usuario</h1>
+<form action="#" th:action="@{/signUp}" th:object="${persona}" method="post">
 	<p>Nombre: <input type="text" th:field="*{nombre}"/></p>
 	<p>Apellido: <input type="text" th:field="*{apellido}"/></p>
 	<p>E-mail: <input type="text" th:field="*{email}"/></p>
@@ -57,7 +54,7 @@ li a:hover {
 	<p>Password: <input type="password" th:field="*{password}"/></p>
 	<p>Confirmar Password: <input type="password" th:field="*{confirmpass}"/></p>
 	<p>
-		<input type="submit" value="Guardar" style="background-color: #B40404; color: white"/>
+		<input type="submit" value="Crear cuenta" style="background-color: #B40404; color: white"/>
 	</p>
 </form>
 </center>

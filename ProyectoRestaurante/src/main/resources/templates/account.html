@@ -4,7 +4,44 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<title>Cuenta</title>
 </head>
-<body>
+<body style="background-color:#F5DA81;">
+
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #B40404;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #FF4000;
+}
+</style>
+
+<ul>
+  <li><a href="/"><img src="../src/main/resoruces/imagenes/menu.jpg" width="150px" height="40px" /></a></li>
+  <li><a href="#">Nosotros</a></li>
+  <li><a href="#">Carta</a></li>
+  <li><a href="#">Combos</a></li>
+  <li><a href="#">Reservas</a></li>
+  <li><a href="#">Contáctenos</a></li>
+  <li><a href="/account">Ver Cuenta</a><br/></li>
+</ul>
 
 <h1>Usuario</h1>
 	<p th:text="'Nombre:' + ${persona.nombre}" />
