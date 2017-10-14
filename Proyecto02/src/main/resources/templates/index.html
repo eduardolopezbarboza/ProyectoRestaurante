@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dragonfly Website Template</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- 
+Dragonfly Template 
+http://www.templatemo.com/preview/templatemo_378_dragonfly 
+-->
+	<link href="templatemo_style.css" type="text/css" rel="stylesheet" /> 
+	<script type="text/javascript" src="js/jquery.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
+	<script type="text/javascript" src="js/jquery.localscroll-min.js"></script> 
+	<script type="text/javascript" src="js/init.js"></script> 
+    
+    <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
+    <script type="text/JavaScript" src="js/slimbox2.js"></script> 
+
+<link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+
+
+</head> 
+<body> 
+<div id="templatemo_wrapper">
+<div id="templatemo_header">
+    <div id="site_title"><a href="#"></a></div>
+    <ul class="nav_menu">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#about">Registro</a></li>
+        <li><a href="#services">Reserva</a></li>
+        <li><a href="#gallery">Carta</a></li>
+        <li><a href="#contact">Contacto</a></li>
+        <li><a href="/listarCuentas">Listar</a></li>
+        
+    </ul>
+    <div class="social_button">
+    	<a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
+		<a href="#"><img src="images/flickr.png" alt="Flickr" /></a>
+		<a href="#"><img src="images/twitter.png" alt="Twitter" /></a>
+		
+		
+        <div class="clear"></div>
+    </div>
+    <p>
+    Copyright © 2017<br />Company Name</p>
+    
+</div>
+<div id="templatemo_main">
+	<div id="content"> 
+       	<div id="home" class="home_slider">
+             <div class="theme-orman">
+                <div id="slider" class="nivoSlider">
+                    <img src="images/slider/011.jpg" alt="Dragonfly 1" rel="images/slider/011n.jpg" />
+                    <img src="images/slider/012.jpg" alt="Dragonfly 2" rel="images/slider/012n.jpg" />
+                    <img src="images/slider/013.jpg" alt="Dragonfly 3" rel="images/slider/013n.jpg" /></div>
+            </div> 
+            <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+            <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+            <script type="text/javascript">
+            $(window).load(function() {
+                $('#slider').nivoSlider({
+                    controlNavThumbs:true,
+					controlNavThumbsFromRel:true,
+					directionNav:false, // Next and Prev
+					keyboardNav:true, // Use left and right arrows
+					pauseOnHover:true // Stop animation while hovering
+                });
+            });
+            </script>
+       	</div>
+        <div class="section section_with_padding" id="about"> 
+            <h1>Resgistro</h1>
+            <p>
+                     
+                <div id="contact_form">
+                	
+                    <form action="#" th:action="@{/addUser}" th:object="${persona}" method="post" name="contact" >
+                        <label for="nombre">Nombre:</label> 
+                        	<input name="nombre" type="text" class="required input_field" id="author" maxlength="30" th:field="*{nombre}" />
+                            
+                        <label for="apellido">Apellido:</label> 
+                        	<input name="apellido" type="text" class="validate-email required input_field" id="email" maxlength="30" th:field="*{apellido}"/>
+                            
+                            <label for="email">Correo:</label> 
+                        	<input name="email" type="email" class="validate-email required input_field" id="email" maxlength="30" th:field="*{correo}" />
+                            
+                            <label for="pass">Password:</label> 
+                        	<input name="password" type="password" class="validate-email required input_field" id="password" maxlength="30" th:field="*{password}" />
+                            
+                            <label for="passconf">Confirm Password:</label> 
+                        	<input name="password2" type="password" class="validate-email required input_field" id="password2" maxlength="30" th:field="*{confpassword}"/>
+                            
+                            
+                        <input type="submit" class="submit_btn left" name="submit" id="submit" value="Crear" />
+                        <input type="reset" class="submit_btn right" name="Reset" id="reset" value="Reset" />
+                        <p style="color:red; text-align: left;" th:text="*{mensajeConfirmacion}" />
+                    </form>
+                </div>
+            
+            
+            
+            </p>
+        </div> 
+        <div class="section section_with_padding" id="services"> 
+            <h1>Services</h1>
+            <div class="half right">
+	            <div class="img_border img_nom">
+	                <a href="#"><img src="images/templatemo_image_04.jpg" alt="image 4" /></a>
+                </div>
+            	<ul class="list_bullet">
+                    <li>Maecenas ac odio ipsum donec</li>
+                    <li>Fusce risus tortor, interdum</li>
+                    <li>Proin facilisis ullamcorper</li>
+                    <li>Sed vel justo quis ligula</li>
+                    <li>Ut tristique sagittis arcu</li>
+                    <li>Maecenas ac odio ipsum donec</li>
+                    <li>Fusce risus tortor, interdum</li>
+                    <li>Proin facilisis ullamcorper</li>
+                </ul>
+                
+            </div>
+            <div class="half left">
+                <div class="img_border img_nom">
+	                <img src="images/templatemo_image_03.jpg" alt="image 3" />	
+                </div>
+            	<p><em>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. You may download free <a href="#">templates</a> for your websites.</em></p>
+            <p>Donec vitae tortor non ipsum tristique condimentum ac ac nulla. Etiam sagittis iaculis dolor ut euismod. Nam faucibus, risus at consequat malesuada, urna turpis sagittis libero, sodales hendrerit dui arcu et nisi. Praesent pulvinar, dolor id lacinia pulvinar, mi ligula tempor libero, et semper sem dolor et elit.</p>
+            </div>
+        </div> 
+        <div class="section" id="gallery"> 
+            <ul id="gallery_wrapper">
+            	<li><a href="images/gallery/09-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/09.jpg" alt="image 9" /></a></li>
+                <li><a href="images/gallery/10-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/10.jpg" alt="image 10" /></a></li>
+                <li><a href="images/gallery/11-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/11.jpg" alt="image 11" /></a></li>
+                <li><a href="images/gallery/12-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/12.jpg" alt="image 12" /></a></li>
+                <li><a href="images/gallery/01-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/01.jpg" alt="image 01" /></a></li>
+                <li><a href="images/gallery/02-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/02.jpg" alt="image 02" /></a></li>
+                <li><a href="images/gallery/03-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/03.jpg" alt="image 03" /></a></li>
+                <li><a href="images/gallery/04-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/04.jpg" alt="image 04" /></a></li>
+                <li><a href="images/gallery/05-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/05.jpg" alt="image 05" /></a></li>
+                <li><a href="images/gallery/06-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/06.jpg" alt="image 06" /></a></li>
+                <li><a href="images/gallery/07-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/07.jpg" alt="image 07" /></a></li>
+                <li><a href="images/gallery/08-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/08.jpg" alt="image 08" /></a></li>                
+                <li><a href="images/gallery/09-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/09.jpg" alt="image 09" /></a></li>
+                <li><a href="images/gallery/10-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/10.jpg" alt="image 10" /></a></li>
+                <li><a href="images/gallery/11-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/11.jpg" alt="image 11" /></a></li>
+                <li><a href="images/gallery/12-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/12.jpg" alt="image 12" /></a></li>
+                <li><a href="images/gallery/01-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/01.jpg" alt="image 01" /></a></li>
+                <li><a href="images/gallery/02-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/02.jpg" alt="image 02" /></a></li>
+                <li><a href="images/gallery/03-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/03.jpg" alt="image 03" /></a></li>
+                <li><a href="images/gallery/04-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/04.jpg" alt="image 04" /></a></li>
+            </ul>	
+        </div> 
+        
+        <div class="section section_with_padding" id="contact"> 
+            <h1>Contacto</h1> 
+            <div class="half left">
+                <h4>&nbsp;</h4>
+                <div id="contact_form">
+                    <form method="post" name="contact" action="#contact">
+                        <label for="author">Name:</label> 
+                        	<input name="author" type="text" class="required input_field" id="author" maxlength="30" />
+                        <label for="email">Email:</label> 
+                        	<input name="email" type="text" class="validate-email required input_field" id="email" maxlength="30" />
+                  <label for="message">Message:</label> 
+                        	<textarea id="message" name="text" rows="0" cols="0" class="required"></textarea>
+                        <input type="submit" class="submit_btn left" name="submit" id="submit" value="Enviar" />
+                        <input type="reset" class="submit_btn right" name="Reset" id="reset" value="Reset" />
+                    </form>
+                </div>
+            </div>
+            
+            <div class="half right">
+                <h4>Direccion</h4>
+                130-310 Duis lacinia dictum, <br />
+                Vestibulum auctor, 10990<br />
+            	Nam rhoncus, diam a mollis<br />
+                
+                <div class="clear h20"></div>
+                <div class="img_nom img_border"><a href="http://goo.gl/VZrm0H" target="_blank"><img src="images/location.jpg" alt="our location" width="230" height="230" /></a></div>
+            </div>
+        </div> 
+    </div> 
+</div>
+</div>
+<!-- templatemo 378 dragonfly -->
+</body> 
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Resultado</title>
+</head>
+<body>
+<h1>Cuenta Registrada</h1>
+	<p th:text="'CODIGO:' + ${persona.id}" />
+	<p th:text="'CUENTA:' + ${persona.nombre}" />
+	<p th:text="'ALIAS:' + ${persona.apellido}" />
+	<p th:text="'CLAVE:' + ${persona.correo}" />
+	<p th:text="'CLAVE:' + ${persona.password}" />
+	<a href="/addUser">Crear Usuario</a>
+	<a href="/">Menu</a>
+</body>
+</html>
