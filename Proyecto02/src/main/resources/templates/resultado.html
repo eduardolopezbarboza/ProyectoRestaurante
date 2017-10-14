@@ -2,16 +2,65 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<title>Resultado</title>
+	
+	<link href="templatemo_style.css" type="text/css" rel="stylesheet" /> 
+	<script type="text/javascript" src="js/jquery.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
+	<script type="text/javascript" src="js/jquery.localscroll-min.js"></script> 
+	<script type="text/javascript" src="js/init.js"></script> 
+    
+    <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
+    <script type="text/JavaScript" src="js/slimbox2.js"></script> 
+
+<link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+	
+	
+	
 </head>
 <body>
+
+<div id="templatemo_wrapper">
+<div id="templatemo_header">
+    <div id="site_title"><a href="#"></a></div>
+    <ul class="nav_menu">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/">Registro</a></li>
+        <li><a href="/">Reserva</a></li>
+        <li><a href="/">Carta</a></li>
+        <li><a href="/">Contacto</a></li>
+        <li><a href="/listarCuentas">Listar</a></li>
+        
+    </ul>
+    <div class="social_button">
+    	<a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
+		<a href="#"><img src="images/flickr.png" alt="Flickr" /></a>
+		<a href="#"><img src="images/twitter.png" alt="Twitter" /></a>
+		
+		
+        <div class="clear"></div>
+    </div>
+    <p>
+    Copyright © 2017<br />Company Name</p>
+    
+</div>
+
+
+<div id="templatemo_main">
+<div id="content"> 
+	<div class="section section_with_padding" id="about"> 
+
 <h1>Cuenta Registrada</h1>
 	<p th:text="'CODIGO:' + ${persona.id}" />
 	<p th:text="'CUENTA:' + ${persona.nombre}" />
 	<p th:text="'ALIAS:' + ${persona.apellido}" />
 	<p th:text="'CLAVE:' + ${persona.correo}" />
 	<p th:text="'CLAVE:' + ${persona.password}" />
-	<a href="/addUser">Crear Usuario</a>
-	<a href="/">Menu</a>
+	
+	</div>
+	
+</div>	
+</div>		
+</div>	
 </body>
 </html>

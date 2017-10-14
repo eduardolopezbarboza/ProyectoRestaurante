@@ -29,7 +29,10 @@ public class AddPersonaController {
 		model.addAttribute("persona", new Persona());
 		return "index";
 	}
-
+	
+	
+	
+	
 	
 	@PostMapping("/addUser")
 	public String submitPerson(@ModelAttribute Persona persona, Model model) {
