@@ -13,7 +13,8 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
 	<script type="text/javascript" src="js/jquery.min.js"></script> 
 	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
 	<script type="text/javascript" src="js/jquery.localscroll-min.js"></script> 
-	<script type="text/javascript" src="js/init.js"></script> 
+	<script type="text/javascript" src="js/init.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
     
     <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
     <script type="text/JavaScript" src="js/slimbox2.js"></script> 
@@ -21,8 +22,58 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
 <link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 
+<script>
+function validar(){
+	
+nombre=$('#nombre').val();
+apellido=$('#apellido').val();
+email=$('#correo').val();	
+password=$('#password').val();	
+password2=$('#confpassword').val();	
 
+	//Comprobamos y mostramos diferentes clases
+	if (nombre==''){
+		$('#respuesta_nombre').removeClass().addClass('inicio');
+	}
+	else {
+		$('#respuesta_nombre').removeClass().addClass('ok');
+	}
+	if (apellido==''){
+		$('#respuesta_apellido').removeClass().addClass('inicio');
+	}
+	else {
+		$('#respuesta_apellido').removeClass().addClass('ok');
+	}
+	if (email==''){
+		$('#respuesta_correo').removeClass().addClass('inicio');
+	}
+	else {
+		$('#respuesta_correo').removeClass().addClass('ok');
+	}
+	if (password==''){
+		$('#respuesta_password').removeClass().addClass('inicio');
+	}
+	else {
+		$('#respuesta_password').removeClass().addClass('ok');
+	}
+	if (password2!=password){
+		$('#respuesta_password2').removeClass().addClass('inicio');
+	}else if (password2==''){
+		$('#respuesta_password2').removeClass().addClass('inicio');
+	}else{
+		$('#respuesta_password2').removeClass().addClass('ok');
+	}
+	
+	//Si no hay ningun campo vacio enviamos el formulario
+	if (nombre==''|| apellido=='' || email=='' || password==''|| password2!=password){
+		return false;
+		}
+		else return true;
+}
+
+</script>
 </head> 
+
 <body> 
 <div id="templatemo_wrapper">
 <div id="templatemo_header">
@@ -30,14 +81,20 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
     <ul class="nav_menu">
         <li><a href="#home">Inicio</a></li>
         <li><a href="#about">Registro</a></li>
+        <!--<li><a href="/addUser">Registro</a></li>-->
+        <li><a href="/acceder">Login</a></li>
         <li><a href="#services">Reserva</a></li>
         <li><a href="#gallery">Carta</a></li>
         <li><a href="#contact">Contacto</a></li>
+        <li><a href="/listarCuentas">Listar</a></li>
+        
     </ul>
     <div class="social_button">
     	<a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
 		<a href="#"><img src="images/flickr.png" alt="Flickr" /></a>
 		<a href="#"><img src="images/twitter.png" alt="Twitter" /></a>
+		
+		
         <div class="clear"></div>
     </div>
     <p>
@@ -68,38 +125,67 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
             </script>
        	</div>
         <div class="section section_with_padding" id="about"> 
-            <h1>Resgistro</h1>
-            <p>
-                     
+            <h1>Registro</h1>
+            <p> 
                 <div id="contact_form">
                 	
-                    <form action="#" th:action="@{/addUser}" th:object="${persona}" method="post" name="contact" >
-                        <label for="nombre">Nombre:</label> 
-                        	<input name="nombre" type="text" class="required input_field" id="author" maxlength="30" th:field="*{nombre}" />
-                            
-                        <label for="apellido">Apellido:</label> 
-                        	<input name="apellido" type="text" class="validate-email required input_field" id="email" maxlength="30" th:field="*{apellido}"/>
-                            
-                            <label for="email">Correo:</label> 
-                        	<input name="email" type="email" class="validate-email required input_field" id="email" maxlength="30" th:field="*{correo}" />
-                            
-                            <label for="pass">Password:</label> 
-                        	<input name="password" type="password" class="validate-email required input_field" id="password" maxlength="30" th:field="*{password}" />
-                            
-                            <label for="passconf">Confirm Password:</label> 
-                        	<input name="password2" type="password" class="validate-email required input_field" id="password2" maxlength="30" th:field="*{confpassword}"/>
-                            
-                            
-                        <input type="submit" class="submit_btn left" name="submit" id="submit" value="Crear" />
+                    <form action="about" th:action="@{/addUser}" th:object="${persona}" method="post" name="contact"  onSubmit="return validar();" >
+                        
+                        <span class="inicio" id="respuesta_nombre"  type="text" th:text="#{nombre}"/> 
+                        <input name="nombre" type="text" class="validate-text required input_field" id="nombre" maxlength="30" th:field="*{nombre}" onBlur="validar();" placeholder="Escribe tu nombre"    />
+
+                        <span class="inicio" id="respuesta_apellido" th:text="#{apellido}"/> 
+                        <input name="apellido" type="text" class="validate-email required input_field" id="apellido" maxlength="30" th:field="*{apellido}"  onBlur="validar();" placeholder="Escribe tu nombre Apellido" />
+
+                        <span class="inicio" id="respuesta_correo" th:text="#{correo}"/>
+                        <input name="email" type="email" class="validate-email required input_field" id="email" maxlength="30" th:field="*{correo}" onBlur="validar();" placeholder="Escribe tu nombre Correo"/>
+   
+                        <span class="inicio" id="respuesta_password" th:text="#{password}"/> 
+                        <input name="password" type="password" class="validate-password required input_field" id="password" maxlength="30" th:field="*{password}" onBlur="validar();" placeholder="Escribe tu contraseña"/>
+   
+                        <span class="inicio" id="respuesta_password2" th:text="#{confpassword}"/>
+                        <input name="confpassword" type="password" class="validate-email required input_field" id="confpassword" maxlength="30" th:field="*{confpassword}" onBlur="validar();" placeholder="Confirma tu contraseña"/>
+
+                        <input type="submit" class="submit_btn left" name="submit" id="btn_send" value="Crear" onClick="validar();"  />
                         <input type="reset" class="submit_btn right" name="Reset" id="reset" value="Reset" />
                         <p style="color:red; text-align: left;" th:text="*{mensajeConfirmacion}" />
+                        	
+            			<div id="errorblock" class="errorblock" th:if="${#fields.hasErrors('*')}">
+        					<ul>
+            					<li th:each="err : ${#fields.errors('*')}" th:text="${err} " style="color: #ff0000;">Datos incorrectos</li>
+        					</ul>
+    					</div>
                     </form>
                 </div>
-            
-            
-            
             </p>
         </div> 
+        
+        <style>
+#formjquery {
+	font-family: 'Open Sans', sans-serif;
+}
+input {
+	margin:4px;
+	padding:4px;
+}
+.inicio {
+	color: rgb(55, 55, 55);
+	background: #EFEFEF;
+	border: 1px solid rgb(199, 199, 199);
+	padding: 4px 8px;
+	border-radius: 3px;
+}
+.ok {
+  color: rgb(9, 97, 20);
+  background: #B3FFBA;
+  border: 1px solid rgb(42, 155, 18);
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+</style>
+        
+        
+        
         <div class="section section_with_padding" id="services"> 
             <h1>Services</h1>
             <div class="half right">
@@ -128,10 +214,6 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
         </div> 
         <div class="section" id="gallery"> 
             <ul id="gallery_wrapper">
-            	<li><a href="images/gallery/09-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/09.jpg" alt="image 9" /></a></li>
-                <li><a href="images/gallery/10-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/10.jpg" alt="image 10" /></a></li>
-                <li><a href="images/gallery/11-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/11.jpg" alt="image 11" /></a></li>
-                <li><a href="images/gallery/12-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/12.jpg" alt="image 12" /></a></li>
                 <li><a href="images/gallery/01-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/01.jpg" alt="image 01" /></a></li>
                 <li><a href="images/gallery/02-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/02.jpg" alt="image 02" /></a></li>
                 <li><a href="images/gallery/03-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/03.jpg" alt="image 03" /></a></li>
@@ -144,10 +226,14 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
                 <li><a href="images/gallery/10-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/10.jpg" alt="image 10" /></a></li>
                 <li><a href="images/gallery/11-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/11.jpg" alt="image 11" /></a></li>
                 <li><a href="images/gallery/12-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/12.jpg" alt="image 12" /></a></li>
-                <li><a href="images/gallery/01-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/01.jpg" alt="image 01" /></a></li>
-                <li><a href="images/gallery/02-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/02.jpg" alt="image 02" /></a></li>
-                <li><a href="images/gallery/03-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/03.jpg" alt="image 03" /></a></li>
-                <li><a href="images/gallery/04-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/04.jpg" alt="image 04" /></a></li>
+                <li><a href="images/gallery/13-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/13.jpg" alt="image 13" /></a></li>
+                <li><a href="images/gallery/14-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/14.jpg" alt="image 14" /></a></li>
+                <li><a href="images/gallery/15-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/15.jpg" alt="image 15" /></a></li>
+                <li><a href="images/gallery/16-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/16.jpg" alt="image 16" /></a></li>
+                <li><a href="images/gallery/17-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/17.jpg" alt="image 17" /></a></li>
+                <li><a href="images/gallery/18-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/18.jpg" alt="image 18" /></a></li>                
+                <li><a href="images/gallery/19-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/19.jpg" alt="image 19" /></a></li>
+                <li><a href="images/gallery/20-l.jpg" rel="lightbox[gallery]"><img src="images/gallery/20.jpg" alt="image 20" /></a></li>
             </ul>	
         </div> 
         
@@ -183,5 +269,6 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
 </div>
 </div>
 <!-- templatemo 378 dragonfly -->
+
 </body> 
 </html>
