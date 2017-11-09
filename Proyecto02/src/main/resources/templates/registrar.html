@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<!--  <meta .....> faltaba el /-->
+	<title>Add Person</title>
+</head>
+<body>
+
+<h1>Agregar Persona</h1>
+<form action="#" th:action="@{/addUser}" th:object="${persona}" method="post" name="contact" >
+     <table>
+		<tr> 
+			<td><p th:text="#{nombre}"/></td>
+			<td><input type="text" th:field="*{nombre}"/></td>
+			<td th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"
+			style="color: #ff0000;">Nombre:</td>
+		</tr>     
+		<tr> 
+			<td><p th:text="#{apellido}"/></td>
+			<td><input type="text" th:field="*{apellido}"/></td>
+			<td th:if="${#fields.hasErrors('apellido')}"  th:errors="*{apellido}"
+			style="color: #ff0000;">Apellido:</td>
+		</tr>
+		<tr> 
+			<td><p th:text="#{correo}"/></td>
+			<td><input type="email" th:field="*{correo}"/></td>
+			<td th:if="${#fields.hasErrors('correo')}"  th:errors="*{correo}"
+			style="color: #ff0000;">Correo:</td>
+		</tr>
+		<tr> 
+			<td><p th:text="#{password}"/></td>
+			<td><input type="password" th:field="*{password}"/></td>
+			<td th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"
+			style="color: #ff0000;">Password:</td>
+		</tr>
+		<tr> 
+			<td><p th:text="#{confpassword}"/></td>
+			<td><input type="password" th:field="*{confpassword}"/></td>
+			<td th:if="${#fields.hasErrors('confpassword')}"  th:errors="*{confpassword}"
+			style="color: #ff0000;">Confpassword:</td>
+		</tr>  
+		          
+    	<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type="submit" value="enviar"/>
+				<input type="reset" value="cancelar"/>
+				<p style="color:red; text-align: left;" th:text="*{mensajeConfirmacion}" />
+                      
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+		
+	
+	
+                       
+</form>
+
+</body>
+</html>

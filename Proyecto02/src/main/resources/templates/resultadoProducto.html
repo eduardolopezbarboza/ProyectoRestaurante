@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta http-equiv="Content-Type"
-	 content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	
 	<link href="templatemo_style.css" type="text/css" rel="stylesheet" /> 
 	<script type="text/javascript" src="js/jquery.min.js"></script> 
 	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 	
+	
+	
 </head>
 <body>
 
@@ -24,7 +26,7 @@
     <ul class="nav_menu">
         <li><a href="/">Inicio</a></li>
         <li><a href="/">Registro</a></li>
-        <li><a href="#services">Reserva</a></li>
+        <li><a href="/">Reserva</a></li>
         <li><a href="/">Carta</a></li>
         <li><a href="/">Contacto</a></li>
         <li><a href="/listarCuentas">Listar</a></li>
@@ -48,40 +50,17 @@
 <div id="content"> 
 	<div class="section section_with_padding" id="about"> 
 
-
-<table border="1">
-	<tr>
-		<th>codigo</th>
-		<th>nombre</th>
-		<th>apellido</th>
-		<th>correo</th>
-		<th>password</th>
-	</tr>
+<h1>Cuenta Registrada</h1>
+	<p th:text="'CODIGO:' + ${producto.codigo}" />
+	<p th:text="'CUENTA:' + ${producto.nombre}" />
+	<p th:text="'ALIAS:' + ${producto.precio}" />
+	<p th:text="'CLAVE:' + ${producto.cantidad}" />
 	
 	
-	
-	<tr th:each="usuario : ${usuarios}">
-	   	<td th:text="${usuario.id}"></td>
-	   	<td th:text="${usuario.nombre}"></td>
-	   	<td th:text="${usuario.apellido}"></td>
-	   	<td th:text="${usuario.correo}"></td>
-	   	<td th:text="${usuario.password}"></td>
-	   	
-	   	
-	   	
-	   	
-	   	<td>
-			<a th:href="@{'/persona/__${usuario.id}__/eliminar'}" th:text="Eliminar" /> 
-			<a th:href="@{'/persona/__${usuario.id}__/edit'}" th:text="Actualizar" />
-		</td>
-	</tr>
-</table>
-
-</div>
+	</div>
 	
 </div>	
 </div>		
 </div>	
-
 </body>
 </html>

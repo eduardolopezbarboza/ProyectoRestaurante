@@ -7,3 +7,11 @@ CREATE TABLE persona (
   correo  VARCHAR(30),
   password  VARCHAR(30)
 );
+
+DROP TABLE producto IF EXISTS;
+CREATE TABLE producto (
+  codigo  INTEGER IDENTITY PRIMARY KEY,
+  nombre  VARCHAR(30),
+  precio  DECIMAL(8,2),
+  cantidad  INTEGER
+);

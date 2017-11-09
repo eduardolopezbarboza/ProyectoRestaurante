@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Agregar Producto</title>
+</head>
+<body>
+<h1>Agregar producto</h1>
+
+<form action="#" th:action="@{/agregarProducto}" th:object="${producto}" method="post" >
+     <table>
+		<tr> 
+			<td><p th:text="#{nombre}"/></td>
+			<td><input type="text" th:field="*{nombre}"/></td>
+			<td th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"
+			style="color: #ff0000;">Producto:</td>
+		</tr>     
+		<tr> 
+			<td><p th:text="#{precio}"/></td>
+			<td><input type="text" th:field="*{precio}"/></td>
+			<td th:if="${#fields.hasErrors('precio')}"  th:errors="*{precio}"
+			style="color: #ff0000;">Precio:</td>
+		</tr>
+		<tr> 
+			<td><p th:text="#{cantidad}"/></td>
+			<td><input type="text" th:field="*{cantidad}"/></td>
+			<td th:if="${#fields.hasErrors('cantidad')}"  th:errors="*{cantidad}"
+			style="color: #ff0000;">Cantidad:</td>
+		</tr>
+		
+		          
+    	<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type="submit" value="enviar"/>
+				<input type="reset" value="cancelar"/>
+				
+                      
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
