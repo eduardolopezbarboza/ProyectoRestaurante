@@ -25,11 +25,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pe.usmp.model.Persona;
 import  pe.usmp.model.PersonaRepository;
 
-
-
-
-
-
 @Controller
 public class AddPersonaController {
 
@@ -42,34 +37,26 @@ public class AddPersonaController {
 		return "registrar";
 	}
 	
-	
-	
-	
-	
 	@PostMapping("/addUser")
-	public String submitPerson(@Valid 
-			Persona persona, BindingResult result, Model model) {
+	public String submitPerson(@Valid Persona persona, BindingResult result, Model model) {
 		String password = persona.getPassword();
 		String confpassword = persona.getConfpassword();
 		String direccion = "";
 		
 		if(result.hasErrors()) {
-			
-			return "registrar";
-		}else {
-		if(password.equals(confpassword)) {
-			persona.setMensajeConfirmacion("Se grabo correctamente!!");
-			direccion = "resultado";
-			personaRepo.save(persona);
-		}else {
-			persona.setMensajeConfirmacion("Las claves deben coincidir. Verificar!");
 			direccion = "registrar";
+		}else {
+			if(password.equals(confpassword)) {
+				persona.setMensajeConfirmacion("Se grabo correctamente!!");
+				model.addAttribute("persona", persona);
+				direccion = "resultado";
+				personaRepo.save(persona);
+			}else {
+				persona.setMensajeConfirmacion("Las claves deben coincidir. Verificar!");
+				direccion = "registrar";
+			}
 		}
-		
-		model.addAttribute("persona", persona);
-		
 		return direccion;
-		}
 	}
 	
 	@PostMapping("/savePerson")

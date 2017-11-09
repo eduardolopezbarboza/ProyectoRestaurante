@@ -34,9 +34,6 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
         <li><a href="#services">Reserva</a></li>
         <li><a href="#gallery">Carta</a></li>
         <li><a href="#contact">Contacto</a></li>
-        <li><a href="/listarCuentas">Listar</a></li>
-        <li><a href="/agregarProducto">Producto</a></li>
-        
         
     </ul>
     <div class="social_button">
@@ -74,39 +71,7 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
             });
             </script>
        	</div>
-        <div class="section section_with_padding" id="about"> 
-            <h1>Resgistro</h1>
-            <p>
-                     
-                <div id="contact_form">
-                	
-                    <form action="#" th:action="@{/addUser}" th:object="${persona}" method="post" name="contact" >
-                        <label for="nombre">Nombre:</label> 
-                        	<input name="nombre" type="text" class="required input_field" id="author" maxlength="30" th:field="*{nombre}" />
-                            
-                        <label for="apellido">Apellido:</label> 
-                        	<input name="apellido" type="text" class="validate-email required input_field" id="email" maxlength="30" th:field="*{apellido}"/>
-                            
-                            <label for="email">Correo:</label> 
-                        	<input name="email" type="email" class="validate-email required input_field" id="email" maxlength="30" th:field="*{correo}" />
-                            
-                            <label for="pass">Password:</label> 
-                        	<input name="password" type="password" class="validate-password required input_field" id="password" maxlength="30" th:field="*{password}" />
-                            
-                            <label for="passconf">Confirm Password:</label> 
-                        	<input name="password2" type="password" class="validate-email required input_field" id="password2" maxlength="30" th:field="*{confpassword}"/>
-                            
-                            
-                        <input type="submit" class="submit_btn left" name="submit" id="submit" value="Crear" />
-                        <input type="reset" class="submit_btn right" name="Reset" id="reset" value="Reset" />
-                        <p style="color:red; text-align: left;" th:text="*{mensajeConfirmacion}" />
-                    </form>
-                </div>
-            
-            
-            
-            </p>
-        </div> 
+        
         <div class="section section_with_padding" id="services"> 
             <h1>Services</h1>
             <div class="half right">

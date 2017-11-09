@@ -112,7 +112,7 @@ img { margin: 0; padding: 0; border: none }
 	display: block; 
 	width: 120px; 
 	height: 60px; 
-	margin-bottom: 70px; 
+	margin-bottom: 50px; 
 	border-bottom: 1px dashed #666;   
 	text-indent: -10000px 
 }
@@ -150,7 +150,7 @@ img { margin: 0; padding: 0; border: none }
 	color: #000
 }
 
-.social_button { display: block; text-align: right; height: 24px; margin-bottom: 30px }
+.social_button { display: block; text-align: right; height: 24px; margin-bottom: 50px }
 .social_button a { display: block; float: right; width: 24px; height: 24px; margin-left: 10px; }
 
 #templatemo_header a { color: #000 }

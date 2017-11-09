@@ -15,8 +15,6 @@
 <link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 	
-	
-	
 </head>
 <body>
 
@@ -51,12 +49,9 @@
 	<div class="section section_with_padding" id="about"> 
 
 <h1>Cuenta Registrada</h1>
-	<p th:text="'CODIGO:' + ${persona.id}" />
-	<p th:text="'CUENTA:' + ${persona.nombre}" />
-	<p th:text="'ALIAS:' + ${persona.apellido}" />
-	<p th:text="'CLAVE:' + ${persona.correo}" />
-	<p th:text="'CLAVE:' + ${persona.password}" />
-	
+	<p th:text="'Nombre:' + ${persona.nombre}" />
+	<p th:text="'Apellido:' + ${persona.apellido}" />
+	<p th:text="'Correo:' + ${persona.correo}" />
 	</div>
 	
 </div>	
