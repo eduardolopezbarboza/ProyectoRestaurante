@@ -1,3 +1,12 @@
+DROP TABLE contacto IF EXISTS;
+
+CREATE TABLE contacto (
+  codigo  INTEGER IDENTITY PRIMARY KEY,
+  nombre  VARCHAR(30),
+  correo  VARCHAR(30),
+  queja  VARCHAR(120)
+);
+
 DROP TABLE persona IF EXISTS;
 
 CREATE TABLE persona (
@@ -15,3 +24,6 @@ CREATE TABLE producto (
   precio  DECIMAL(8,2),
   cantidad  INTEGER
 );
+
+
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	
+	<link href="templatemo_style.css" type="text/css" rel="stylesheet" /> 
+	<script type="text/javascript" src="js/jquery.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
+	<script type="text/javascript" src="js/jquery.localscroll-min.js"></script> 
+	<script type="text/javascript" src="js/init.js"></script> 
+    
+    <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
+    <script type="text/JavaScript" src="js/slimbox2.js"></script> 
+
+<link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+	
+	
+	
+</head>
+<body>
+
+<div id="templatemo_wrapper">
+<div id="templatemo_header">
+    <div id="site_title"><a href="#"></a></div>
+    <ul class="nav_menu">
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="/addUser">Registro</a></li>
+        <li><a href="/acceder">Login</a></li>
+        <li><a href="#services">Reserva</a></li>
+        <li><a href="#gallery">Carta</a></li>
+        <li><a href="/agregarContacto">Contacto</a></li>
+        
+    </ul>
+    <div class="social_button">
+    	<a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
+		<a href="#"><img src="images/flickr.png" alt="Flickr" /></a>
+		<a href="#"><img src="images/twitter.png" alt="Twitter" /></a>
+		
+		
+        <div class="clear"></div>
+    </div>
+    <p>
+    Copyright © 2017<br />Company Name</p>
+    
+</div>
+
+
+<div id="templatemo_main">
+<div id="content"> 
+	<div class="section section_with_padding" id="about"> 
+
+<h1>Queja Registrada</h1>
+	<p th:text="'CODIGO:	' + ${contacto.codigo}" />
+	<p th:text="'NOMBRE:	' + ${contacto.nombre}" />
+	<p th:text="'CORREO:	' + ${contacto.correo}" />
+	<p th:text="'QUEJA:		' + ${contacto.queja}" />
+	
+		<CENTER><a th:href="@{'/contacto/__${contacto.codigo}__/edit'}" th:text="Actualizar" /></CENTER>
+	</div>
+	
+</div>	
+</div>		
+</div>	
+</body>
+</html>
