@@ -28,33 +28,24 @@ public class AddProductoController {
 	@Autowired
 	private ProductoRepository productoRepo;
 	
-	
 	@GetMapping("/agregarProducto")
 	public String loadFormProducto(Model model) {
 		model.addAttribute("producto", new Producto());
 		return "productoForm";
 	}
 	
-	
 	@PostMapping("/agregarProducto")
 	public String submitProducto(@Valid 
 			Producto producto, BindingResult result, Model model) {
 		
 		if(result.hasErrors()) {
-			
 			return "productoForm";
 		}else {
 			productoRepo.save(producto);
 			return "resultadoProducto";
-			
-		
-		}	
-		
+		}		
 	}
 
-
-	
-	
 	@GetMapping(value = "/producto/{productId}/eliminar")
 	public String eliminarPerson(@PathVariable("productId") long codigo,
 			Model model) {

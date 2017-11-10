@@ -23,12 +23,15 @@ public class addUserController {
 	
 	@PostMapping("/acceder")
 	public String submitUsuario(@ModelAttribute Usuario usuario) {
+		String direccion = "";
 		if(usuario.getStusuario().equals("admin") && usuario.getClave().equals("12345")) {
-			return "inicio";
+			direccion="inicio";
+		}else {
+			System.out.println("Acceder Post Usuario" + usuario.getStusuario());
+			direccion="login";
 		}
-		System.out.println("Acceder Post Usuario" + usuario.getStusuario());
-		return "index";
-		
+		return direccion;
 	}
-
+	
+	
 }
