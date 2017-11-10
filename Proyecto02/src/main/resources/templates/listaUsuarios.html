@@ -23,13 +23,13 @@
 <div id="site_title" style="margin-bottom:30px"><a href="#"></a></div>
     <h2>Admin</h2>
     <ul class="nav_menu" style="margin: 0 0 30px 0">
-        <li><a href="/inicio">Inicio</a></li>
-        <li><a href="/addUser">Registro</a></li>
+        <li><a href="/indexAdmin">Inicio</a></li>
         <li><a href="#gallery">Carta</a></li>
         <li><a href="#contact">Contacto</a></li>
-        <li><a href="/listarCuentas">Usuarios</a></li>
-        <li><a href="/agregarProducto">Nuevo producto</a></li>
-        <li><a href="#">Productos</a></li>
+        <li><a href="/listarCuentas">Listar Cuentas</a></li>
+        <li><a href="/agregarProducto">Agregar Producto</a></li>
+        <li><a href="/listarProductos">Listar Productos</a></li>
+        <li><a href="/listarContacto">Listar Contactos</a></li>
         <li><a href="/"><p style="color: black">Log out</p></a></li>
     </ul>
     <div class="social_button" style="margin-bottom:20px">
@@ -47,7 +47,6 @@
 <div id="content"> 
 	<div class="section section_with_padding" id="about"> 
 
-
 <table border="1">
 	<tr>
 		<th>codigo</th>
@@ -57,17 +56,12 @@
 		<th>password</th>
 	</tr>
 	
-	
-	
 	<tr th:each="usuario : ${usuarios}">
 	   	<td th:text="${usuario.id}"></td>
 	   	<td th:text="${usuario.nombre}"></td>
 	   	<td th:text="${usuario.apellido}"></td>
 	   	<td th:text="${usuario.correo}"></td>
 	   	<td th:text="${usuario.password}"></td>
-	   	
-	   	
-	   	
 	   	
 	   	<td>
 			<a th:href="@{'/persona/__${usuario.id}__/eliminar'}" th:text="Eliminar" /> 

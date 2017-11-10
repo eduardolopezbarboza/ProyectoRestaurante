@@ -31,27 +31,18 @@ public class AddContactoController {
 		return "contacto";
 	}
 	
-	
 	@PostMapping("/agregarContacto")
 	public String submitContacto(@Valid 
 			Contacto contacto, BindingResult result, Model model) {
 		
 		if(result.hasErrors()) {
-			
 			return "contacto";
 		}else {
 			contactoRepo.save(contacto);
-			
 			return "resultadoContacto";
-			
-		
 		}	
-		
 	}
 
-
-	
-	
 	@GetMapping(value = "/contacto/{contactId}/eliminar")
 	public String eliminarContact(@PathVariable("contactId") long codigo,
 			Model model) {

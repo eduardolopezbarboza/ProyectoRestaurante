@@ -90,8 +90,6 @@ public class AddPersonaController {
 		return "registrar";
 	}
 	
-	
-	
 	/*@PostMapping("/addPerson")
 	public String submitPerson(@ModelAttribute Persona persona) {
 
