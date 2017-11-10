@@ -56,32 +56,32 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
 					<tr> 
 						<td><p th:text="#{nombre}"/></td>
 						<td><input type="text" th:field="*{nombre}"/></td>
-						<td th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"
-						style="color: #ff0000;">Nombre:</td>
+						<!--<td th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"
+						style="color: #ff0000;">Nombre:</td>-->
 					</tr>     
 					<tr> 
 						<td><p th:text="#{apellido}"/></td>
 						<td><input type="text" th:field="*{apellido}"/></td>
-						<td th:if="${#fields.hasErrors('apellido')}"  th:errors="*{apellido}"
-						style="color: #ff0000;">Apellido:</td>
+						<!--<td th:if="${#fields.hasErrors('apellido')}"  th:errors="*{apellido}"
+						style="color: #ff0000;">Apellido:</td>-->
 					</tr>
 					<tr> 
 						<td><p th:text="#{correo}"/></td>
 						<td><input type="email" th:field="*{correo}"/></td>
-						<td th:if="${#fields.hasErrors('correo')}"  th:errors="*{correo}"
-						style="color: #ff0000;">Correo:</td>
+						<!--<td th:if="${#fields.hasErrors('correo')}"  th:errors="*{correo}"
+						style="color: #ff0000;">Correo:</td>-->
 					</tr>
 					<tr> 
 						<td><p th:text="#{password}"/></td>
 						<td><input type="password" th:field="*{password}"/></td>
-						<td th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"
-						style="color: #ff0000;">Password:</td>
+						<!--<td th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"
+						style="color: #ff0000;">Password:</td>-->
 					</tr>
 					<tr> 
 						<td><p th:text="#{confpassword}"/></td>
 						<td><input type="password" th:field="*{confpassword}"/></td>
-						<td th:if="${#fields.hasErrors('confpassword')}"  th:errors="*{confpassword}"
-						style="color: #ff0000;">Confpassword:</td>
+						<!--<td th:if="${#fields.hasErrors('confpassword')}"  th:errors="*{confpassword}"
+						style="color: #ff0000;">Confpassword:</td>-->
 					</tr>         
     				<tr>
 						<td>&nbsp;</td>
@@ -91,8 +91,14 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
 							<p style="color:red; text-align: left;" th:text="*{mensajeConfirmacion}" />        
 						</td>
 						<td>&nbsp;</td>
+						
 					</tr>
-				</table>                  
+				</table>
+				<div id="errorblock" style="border-style: dashed;border-color: red;margin: 10px;padding: 10px;position:absolute;width: 240px;top:100px;right:0px;left:500px;" class="errorblock" th:if="${#fields.hasErrors('*')}">
+        			<ul>
+            			<li th:each="err : ${#fields.errors('*')}" th:text="${err} " style="color: #ff0000;">Datos incorrectos</li>
+        			</ul>
+    			</div>                
 			</form>
 		</div>
 	</p>

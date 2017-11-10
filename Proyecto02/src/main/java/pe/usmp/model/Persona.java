@@ -24,10 +24,11 @@ public class Persona {
 	private long id;
 	
 	@NotEmpty
-	@Size(min=4, max=50,message="debe tener una longitud minima de {min} y maxima {max}")
+	@Size(min=4, max=50,message="El nombre debe tener una longitud minima de {min} y maxima {max}")
 	private String nombre;
+	
 	@NotEmpty
-	@Size(min=4, max=50,message="debe tener una longitud minima de {min} y maxima {max}")
+	@Size(min=4, max=50,message="El apellido debe tener una longitud minima de {min} y maxima {max}")
 	private String apellido;
 	
 	@NotEmpty
@@ -35,7 +36,7 @@ public class Persona {
 	private String correo;
 	
 	@NotNull
-	@Size(min=6, max=12,message="debe tener una longitud minima de {min} y maxima {max}")
+	@Size(min=6, max=12,message="La clave debe tener una longitud minima de {min} y maxima {max}")
 	private String password;
 	@NotNull
 	

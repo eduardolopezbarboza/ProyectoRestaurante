@@ -20,15 +20,15 @@ public class Contacto {
 	private long codigo;
 	
 	@NotEmpty
-	@Size(min=3, max=50,message="debe tener una longitud minima de {min} y maxima {max}")
+	@Size(min=3, max=50,message="El nombre debe tener una longitud minima de {min} y maxima {max}")
 	private String Nombre;
 	
 	@NotEmpty
-	@Size(min=3, max=50,message="debe tener una longitud minima de {min} y maxima {max}")
+	@Size(min=3, max=50,message="El correo debe tener una longitud minima de {min} y maxima {max}")
 	private String correo;
 	
 	@NotEmpty
-	@Size(min=1, max=120,message="debe tener una longitud minima de {min} y maxima {max}")
+	@Size(min=1, max=120,message="El mensaje debe tener una longitud minima de {min} y maxima {max}")
 	private String queja;
 	
 	

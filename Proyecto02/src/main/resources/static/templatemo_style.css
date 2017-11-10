@@ -201,7 +201,7 @@ img { margin: 0; padding: 0; border: none }
 
 #gallery_wrapper li a img  { }
 
-#contact_form { padding: 0; width: 250px }
+#contact_form {position:relative; right:0px; left:0px; padding: 0; width: 250px }
 #contact_form form { margin: 0px; padding: 0px; }
 
 #contact_form form .input_field { 

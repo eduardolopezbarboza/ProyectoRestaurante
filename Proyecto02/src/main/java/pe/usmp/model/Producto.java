@@ -21,7 +21,7 @@ public class Producto {
 	private long codigo;
 	
 	@NotEmpty
-	@Size(min=3, max=50,message="debe tener una longitud minima de {min} y maxima {max}")
+	@Size(min=3, max=50,message="El nombre debe tener una longitud minima de {min} y maxima {max}")
 	private String nombre;
 	
 	

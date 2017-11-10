@@ -41,34 +41,31 @@ public class addUserController {
 	
 	@PostMapping("/acceder")
 	public String submitUsuario(@ModelAttribute Usuario usuario, Map<String, Object> model) {
-		List<Persona> pers = personaRepo.findAll();
 		String nom=usuario.getStusuario();
 		String pass=usuario.getClave();
-		int x=1;
+		/*List<Persona> nomdb = personaRepo.findByNombre(nom);*/
+		List<Persona> passdb = personaRepo.findByPassword(pass);
+		List<Persona> nomdb = personaRepo.findNombreByPassword(pass);
 		String direccion = "";
 
-		if(pers.isEmpty()) {
+		if(nom.equals("") && pass.equals("")) {
 			System.out.println("Acceder Post Usuario" + usuario.getStusuario());
 			direccion="login";
+			System.out.println("Esta vacio");
 		}else {
-			do {
-				if(nom.equals(pers.get(x).getNombre()) && pass.equals(pers.get(x).getPassword())){
-					direccion="indexUser";
-				}else {
-					direccion="login";
-					if(x<pers.size()) {
-						x++;
-					}
-				}
-			}while(nom.compareTo(pers.get(x).getNombre())!=0 && pass.compareTo(pers.get(x).getPassword())!=0);
-			
 			if(nom.equals("admin") && pass.equals("12345")) {
 				direccion="indexAdmin";
+				System.out.println("Si funciona, redirecciona a admin");
 			}else {
-				direccion="login";
+				if(nomdb.toString().equalsIgnoreCase("["+nom+"]") && passdb.toString().equalsIgnoreCase("["+pass+"]")) {
+					direccion="indexUser";
+					System.out.println("Si funciona, redirecciona a user");
+				}else {
+					direccion="login";
+					System.out.println("Los datos no concuerdan");
+				}
 			}
 		}
-		
 		return direccion;
 	}
 	
