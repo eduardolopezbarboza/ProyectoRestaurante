@@ -1,6 +1,7 @@
 package pe.usmp.control;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,28 +23,15 @@ public class addUserController {
 	private PersonaRepository personaRepo;
 	
 	@GetMapping("/acceder")
-	public String login(Model model) {
+	public String login(Model model, Locale locale) {
 		model.addAttribute("usuario", new Usuario());
 		return "login";
 	}
-	
-	/*@PostMapping("/acceder")
-	public String submitUsuario(@ModelAttribute Usuario usuario) {
-		String direccion = "";
-		if(usuario.getStusuario().equals("admin") && usuario.getClave().equals("12345")) {
-			direccion="indexAdmin";
-		}else {
-			System.out.println("Acceder Post Usuario" + usuario.getStusuario());
-			direccion="login";
-		}
-		return direccion;
-	}*/
 	
 	@PostMapping("/acceder")
 	public String submitUsuario(@ModelAttribute Usuario usuario, Map<String, Object> model) {
 		String nom=usuario.getStusuario();
 		String pass=usuario.getClave();
-		/*List<Persona> nomdb = personaRepo.findByNombre(nom);*/
 		List<Persona> passdb = personaRepo.findByPassword(pass);
 		List<Persona> nomdb = personaRepo.findNombreByPassword(pass);
 		String direccion = "";

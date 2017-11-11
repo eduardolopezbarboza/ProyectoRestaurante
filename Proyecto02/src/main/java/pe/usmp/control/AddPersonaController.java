@@ -1,14 +1,6 @@
 package pe.usmp.control;
 import java.util.List;
-
-
-
-
-
-
-
-
-
+import java.util.Locale;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -32,7 +24,7 @@ public class AddPersonaController {
 	private PersonaRepository personaRepo;
 
 	@GetMapping("/addUser")
-	public String loadFormPerson(Model model) {
+	public String loadFormPerson(Model model, Locale locale) {
 		model.addAttribute("persona", new Persona());
 		return "registrar";
 	}

@@ -1,10 +1,7 @@
 package pe.usmp.control;
 
 import java.util.List;
-
-
-
-
+import java.util.Locale;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -29,7 +26,7 @@ public class AddProductoController {
 	private ProductoRepository productoRepo;
 	
 	@GetMapping("/agregarProducto")
-	public String loadFormProducto(Model model) {
+	public String loadFormProducto(Model model, Locale locale) {
 		model.addAttribute("producto", new Producto());
 		return "productoForm";
 	}

@@ -22,7 +22,7 @@ public class Proyecto01Application extends WebMvcConfigurerAdapter  {
 	@Bean
 	public LocaleResolver localeResolver() {
 	    SessionLocaleResolver slr = new SessionLocaleResolver();
-	    slr.setDefaultLocale(Locale.getDefault());
+	    slr.setDefaultLocale(Locale.US);
 	    return slr;
 	}
 	

@@ -1,7 +1,7 @@
 package pe.usmp.control;
 
 import java.util.List;
-
+import java.util.Locale;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -26,7 +26,7 @@ public class AddContactoController {
 	
 	
 	@GetMapping("/agregarContacto")
-	public String loadFormContacto(Model model) {
+	public String loadFormContacto(Model model, Locale locale) {
 		model.addAttribute("contacto", new Contacto());
 		return "contacto";
 	}
