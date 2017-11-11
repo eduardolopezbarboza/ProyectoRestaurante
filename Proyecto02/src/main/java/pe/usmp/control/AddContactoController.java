@@ -11,11 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import pe.usmp.model.Contacto;
 import pe.usmp.model.ContactoRepository;
+import pe.usmp.model.Producto;
 
 
 @Controller
@@ -42,6 +44,12 @@ public class AddContactoController {
 			return "resultadoContacto";
 		}	
 	}
+	
+	@PostMapping("/saveContact")
+	public String savePerson(@ModelAttribute Contacto contacto) {
+		contactoRepo.save(contacto);
+		return "indexAdmin";
+	}
 
 	@GetMapping(value = "/contacto/{contactId}/eliminar")
 	public String eliminarContact(@PathVariable("contactId") long codigo,
@@ -64,7 +72,7 @@ public class AddContactoController {
 		Contacto contacto = contactoRepo.findOne(codigo);
 		System.out.println("Codigo de Edit " + contacto.getCodigo());
 		model.addAttribute("contacto", contacto);
-		return "contacto";
+		return "editarContacto";
 	}
 }
 

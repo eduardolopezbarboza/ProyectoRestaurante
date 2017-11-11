@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
+import pe.usmp.model.Persona;
 import pe.usmp.model.Producto;
 import pe.usmp.model.ProductoRepository;
 
@@ -42,6 +42,12 @@ public class AddProductoController {
 			return "resultadoProducto";
 		}		
 	}
+	
+	@PostMapping("/saveProduct")
+	public String savePerson(@ModelAttribute Producto producto) {
+		productoRepo.save(producto);
+		return "indexAdmin";
+	}
 
 	@GetMapping(value = "/producto/{productId}/eliminar")
 	public String eliminarPerson(@PathVariable("productId") long codigo,
@@ -64,7 +70,7 @@ public class AddProductoController {
 		Producto producto = productoRepo.findOne(codigo);
 		System.out.println("Codigo de Edit " + producto.getCodigo());
 		model.addAttribute("producto", producto);
-		return "productoForm";
+		return "editarProducto";
 	}
 
 }

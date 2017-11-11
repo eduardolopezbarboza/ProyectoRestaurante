@@ -69,7 +69,7 @@ public class AddPersonaController {
 			Model model) {
 		personaRepo.delete(id);
 		
-		return "redirect:/indexAdmin";
+		return "redirect:/listarCuentas";
 	}
 	
 	@GetMapping(value = "/persona/{personaId}/edit")

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Editar </title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- 
+Dragonfly Template 
+http://www.templatemo.com/preview/templatemo_378_dragonfly 
+-->
+	<link href="templatemo_style.css" type="text/css" rel="stylesheet" /> 
+	<script type="text/javascript" src="js/jquery.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
+	<script type="text/javascript" src="js/jquery.localscroll-min.js"></script> 
+	<script type="text/javascript" src="js/init.js"></script> 
+    
+    <link rel="stylesheet" href="css/slimbox2.css" type="text/css" media="screen" /> 
+    <script type="text/JavaScript" src="js/slimbox2.js"></script> 
+
+<link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+
+</head> 
+<body> 
+<div id="templatemo_wrapper">
+<div id="templatemo_header">
+    <div id="site_title"><a href="#"></a></div>
+    <ul class="nav_menu">
+        <li><a href="/indexAdmin">Inicio</a></li>
+        <li><a href="/listarCuentas">Cuentas</a></li>
+        <li><a href="/agregarProducto">Agregar Producto</a></li>
+        <li><a href="/listarProductos">Productos</a></li>
+        <li><a href="/listarContacto">Sugerencias</a></li>
+        <li><a href="/"><p style="color: black">Salir</p></a></li>  
+    </ul>
+    <div class="social_button">
+    	<a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
+		<a href="#"><img src="images/flickr.png" alt="Flickr" /></a>
+		<a href="#"><img src="images/twitter.png" alt="Twitter" /></a>
+		
+		
+        <div class="clear"></div>
+    </div>
+    <p>
+    Copyright © 2017<br />Company Name</p>
+</div>
+
+ <div class="section section_with_padding" id="about"> 
+            <h1>Editar Persona</h1>
+            <p> 
+                <div id="contact_form">
+                	
+                    <form action="about" th:action="@{/saveProduct}" th:object="${producto}" method="post" name="contact">
+                        <p><input type="hidden" th:field="*{codigo}"/></p>
+                        <table>
+							<tr> 
+								<td><p th:text="#{nombre}"/></td>
+								<td><input type="text" th:field="*{nombre}"/></td>
+							</tr>     
+							<tr> 
+								<td><p th:text="#{precio}"/></td>
+								<td><input type="text" th:field="*{precio}"/></td>
+							</tr>
+							<tr> 
+								<td><p th:text="#{cantidad}"/></td>
+								<td><input type="text" th:field="*{cantidad}"/></td>
+							</tr>
+    						<tr>
+								<td>&nbsp;</td>
+								<td>
+									<input type="submit" value="enviar"/>
+									<input type="reset" value="cancelar"/>          
+								</td>
+								<td>&nbsp;</td>
+							</tr>
+						</table>
+            			<div id="errorblock" style="border-style: dashed;border-color: red;margin: 10px;padding: 10px;position:absolute;width: 240px;top:40px;right:0px;left:300px;" class="errorblock" th:if="${#fields.hasErrors('*')}">
+        					<ul>
+            					<li th:each="err : ${#fields.errors('*')}" th:text="${err} " style="color: #ff0000;">Datos incorrectos</li>
+        					</ul>
+    					</div>
+                    </form>
+                </div>
+            </p>
+        </div> 
+
+<style>
+#formjquery {
+	font-family: 'Open Sans', sans-serif;
+}
+input {
+	margin:4px;
+	padding:4px;
+}
+.inicio {
+	color: rgb(55, 55, 55);
+	background: #EFEFEF;
+	border: 1px solid rgb(199, 199, 199);
+	padding: 4px 8px;
+	border-radius: 3px;
+}
+.ok {
+  color: rgb(9, 97, 20);
+  background: #B3FFBA;
+  border: 1px solid rgb(42, 155, 18);
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+</style>
+
+</div>
+</body>
+</html>
