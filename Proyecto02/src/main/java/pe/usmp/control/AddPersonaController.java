@@ -62,9 +62,8 @@ public class AddPersonaController {
 	@PostMapping("/savePerson")
 	public String savePerson(@ModelAttribute Persona persona) {
 		personaRepo.save(persona);
-		return "resultado";
+		return "indexAdmin";
 	}
-	
 	
 	@GetMapping("/listarCuentas")
 	public String list(Map<String, Object> model) {
@@ -78,7 +77,7 @@ public class AddPersonaController {
 			Model model) {
 		personaRepo.delete(id);
 		
-		return "listaUsuarios";
+		return "redirect:/indexAdmin";
 	}
 	
 	@GetMapping(value = "/persona/{personaId}/edit")
@@ -87,21 +86,6 @@ public class AddPersonaController {
 		Persona persona = personaRepo.findOne(id);
 		System.out.println("Codigo de Edit " + persona.getId());
 		model.addAttribute("persona", persona);
-		return "registrar";
+		return "editarUsuario";
 	}
-	
-	/*@PostMapping("/addPerson")
-	public String submitPerson(@ModelAttribute Persona persona) {
-
-		personaRepo.save(persona);
-
-		return "result";
-	}
-
-	@GetMapping("/listPerson")
-	public String list(Map<String, Object> model) {
-		List<Persona> pers = personaRepo.findAll();
-		model.put("pers", pers);
-		return "persList";
-	} */
 }

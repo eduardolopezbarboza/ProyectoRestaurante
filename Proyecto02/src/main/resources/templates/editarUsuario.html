@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Agregar Persona</title>
+<title>Editar </title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <!-- 
@@ -77,10 +77,11 @@ password2=$('#confpassword').val();
 <div id="templatemo_header">
     <div id="site_title"><a href="#"></a></div>
     <ul class="nav_menu">
-        <li><a href="/">Inicio</a></li>
+         <li><a href="/">Inicio</a></li>
         <li><a href="/addUser">Registro</a></li>
         <li><a href="/acceder">Login</a></li>
         <li><a href="#gallery">Carta</a></li>
+        
          
     </ul>
     <div class="social_button">
@@ -95,12 +96,14 @@ password2=$('#confpassword').val();
     Copyright © 2017<br />Company Name</p>
 </div>
 
-<div class="section section_with_padding" id="about"> 
-	<h1>Registro</h1>
+ <div class="section section_with_padding" id="about"> 
+            <h1>Editar Persona</h1>
             <p> 
                 <div id="contact_form">
                 	
-                    <form action="about" th:action="@{/addUser}" th:object="${persona}" method="post" name="contact"  onSubmit="return validar();" >
+                    <form action="about" th:action="@{/savePerson}" th:object="${persona}" method="post" name="contact"  onSubmit="return validar();" >
+                        
+                        <p><input type="hidden" th:field="*{id}"/></p>
                         
                         <span class="inicio" id="respuesta_nombre"  type="text" th:text="#{nombre}"/> 
                         <input name="nombre" type="text" class="validate-text required input_field" id="nombre" maxlength="30" th:field="*{nombre}" onBlur="validar();" placeholder="Escribe tu nombre"    />
@@ -117,7 +120,7 @@ password2=$('#confpassword').val();
                         <span class="inicio" id="respuesta_password2" th:text="#{confpassword}"/>
                         <input name="confpassword" type="password" class="validate-email required input_field" id="confpassword" maxlength="30" th:field="*{confpassword}" onBlur="validar();" placeholder="Confirma tu contraseña"/>
 
-                        <input type="submit" class="submit_btn left" name="submit" id="btn_send" value="Crear" onClick="validar();"  />
+                        <input type="submit" class="submit_btn left" name="submit" id="btn_send" value="Actualizar" onClick="validar();"  />
                         <input type="reset" class="submit_btn right" name="Reset" id="reset" value="Reset" />
                         <p style="color:red; text-align: left;" th:text="*{mensajeConfirmacion}" />
                         	
@@ -125,7 +128,7 @@ password2=$('#confpassword').val();
         					<ul>
             					<li th:each="err : ${#fields.errors('*')}" th:text="${err} " style="color: #ff0000;">Datos incorrectos</li>
         					</ul>
-    					</div> 
+    					</div>
                     </form>
                 </div>
             </p>

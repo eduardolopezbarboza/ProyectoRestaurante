@@ -29,13 +29,11 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
     <h2>Admin</h2>
     <ul class="nav_menu" style="margin: 0 0 30px 0">
         <li><a href="/indexAdmin">Inicio</a></li>
-        <li><a href="#gallery">Carta</a></li>
-        <li><a href="#contact">Contacto</a></li>
-        <li><a href="/listarCuentas">Listar Cuentas</a></li>
+        <li><a href="/listarCuentas">Cuentas</a></li>
         <li><a href="/agregarProducto">Agregar Producto</a></li>
-        <li><a href="/listarProductos">Listar Productos</a></li>
-        <li><a href="/listarContacto">Listar Contactos</a></li>
-        <li><a href="/"><p style="color: black">Log out</p></a></li>
+        <li><a href="/listarProductos">Productos</a></li>
+        <li><a href="/listarContacto">Sugerencias</a></li>
+        <li><a href="/"><p style="color: black">Salir</p></a></li>
     </ul>
     <div class="social_button" style="margin-bottom:20px">
     	<a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
@@ -57,20 +55,14 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
 					<tr> 
 						<td><p th:text="#{nombre}"/></td>
 						<td><input type="text" th:field="*{nombre}"/></td>
-						<td th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"
-						style="color: #ff0000;">Producto:</td>
 					</tr>     
 					<tr> 
 						<td><p th:text="#{precio}"/></td>
 						<td><input type="text" th:field="*{precio}"/></td>
-						<td th:if="${#fields.hasErrors('precio')}"  th:errors="*{precio}"
-						style="color: #ff0000;">Precio:</td>
 					</tr>
 					<tr> 
 						<td><p th:text="#{cantidad}"/></td>
 						<td><input type="text" th:field="*{cantidad}"/></td>
-						<td th:if="${#fields.hasErrors('cantidad')}"  th:errors="*{cantidad}"
-						style="color: #ff0000;">Cantidad:</td>
 					</tr>
 		
 		          
@@ -85,6 +77,11 @@ http://www.templatemo.com/preview/templatemo_378_dragonfly
 						<td>&nbsp;</td>
 					</tr>
 				</table>
+				<div id="errorblock" style="border-style: dashed;border-color: red;margin: 10px;padding: 10px;position:absolute;width: 240px;top:40px;right:0px;left:300px;" class="errorblock" th:if="${#fields.hasErrors('*')}">
+        			<ul>
+            			<li th:each="err : ${#fields.errors('*')}" th:text="${err} " style="color: #ff0000;">Datos incorrectos</li>
+        			</ul>
+    			</div> 
 			</form>
 		</div>
 	</p>

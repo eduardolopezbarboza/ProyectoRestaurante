@@ -1,8 +1,14 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sugerencia</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<!-- 
+Dragonfly Template 
+http://www.templatemo.com/preview/templatemo_378_dragonfly 
+-->
 	<link href="templatemo_style.css" type="text/css" rel="stylesheet" /> 
 	<script type="text/javascript" src="js/jquery.min.js"></script> 
 	<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script> 
@@ -14,9 +20,7 @@
 
 <link rel="stylesheet" href="css/orman.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
-	
-	
-	
+
 </head>
 <body>
 
@@ -24,69 +28,63 @@
 <div id="templatemo_header">
     <div id="site_title"><a href="#"></a></div>
     <ul class="nav_menu">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/addUser">Registro</a></li>
-        <li><a href="/">Reserva</a></li>
-        <li><a href="/">Carta</a></li>
-        <li><a href="/agregarContacto">Contacto</a></li>
-        
+        <li><a href="/indexUser">Inicio</a></li>
+        <li><a href="#gallery">Carta</a></li>
+        <li><a href="/agregarContacto">Sugerencias</a></li>
+        <li><a href="/"><p style="color: black">Salir</p></a></li>
         
     </ul>
     <div class="social_button">
     	<a href="#"><img src="images/facebook.png" alt="Facebook" /></a>
 		<a href="#"><img src="images/flickr.png" alt="Flickr" /></a>
 		<a href="#"><img src="images/twitter.png" alt="Twitter" /></a>
-		
-		
+
         <div class="clear"></div>
     </div>
     <p>
     Copyright © 2017<br />Company Name</p>
-    
 </div>
 
-
-<div id="templatemo_main">
-<div id="content"> 
-	 <form action="#" th:action="@{/agregarContacto}" th:object="${contacto}" method="post" name="contact" >
-                        <table>
-		<tr> 
-			<td><p th:text="#{nombre}"/></td>
-			<td><input type="text" th:field="*{nombre}"/></td>
-			<td th:if="${#fields.hasErrors('nombre')}"  th:errors="*{nombre}"
-			style="color: #ff0000;">Nombre:</td>
-		</tr>     
+<div class="section section_with_padding" id="about"> 
+	<h1>Sugerencias</h1>
+		<p>
+		<div id="contact_form">
+	 		<form action="#" th:action="@{/agregarContacto}" th:object="${contacto}" method="post" name="contact" >
+                <table>
+					<tr> 
+						<td><p th:text="#{contacto}"/></td>
+						<td><input type="text" th:field="*{nombre}"/></td>
+					</tr>     
 		
-		<tr> 
-			<td><p th:text="#{correo}"/></td>
-			<td><input type="email" th:field="*{correo}"/></td>
-			<td th:if="${#fields.hasErrors('correo')}"  th:errors="*{correo}"
-			style="color: #ff0000;">Correo:</td>
-		</tr>
+					<tr> 
+						<td><p th:text="#{mail}"/></td>
+						<td><input type="email" th:field="*{correo}"/></td>
+					</tr>
 		
-		<tr> 
-			<td><p th:text="#{queja}"/></td>
-			<td><textarea id="message" name="text" rows="0" cols="0" th:field="*{queja}"></textarea></td>
-			<td th:if="${#fields.hasErrors('queja')}"  th:errors="*{queja}"
-			style="color: #ff0000;">Queja:</td>
-		</tr>  
+					<tr> 
+						<td><p th:text="#{queja}"/></td>
+						<td><textarea id="message" name="text" rows="0" cols="0" th:field="*{queja}"></textarea></td>
+					</tr>  
 		          
-    	<tr>
-			<td>&nbsp;</td>
-			<td>
-				<input type="submit" value="enviar"/>
-				<input type="reset" value="cancelar"/>
-				
-                      
-			</td>
-			<td>&nbsp;</td>
-		</tr>
-	</table>
-	 </form>
-	
+    				<tr>
+						<td>&nbsp;</td>
+						<td>
+							<input type="submit" value="enviar"/>
+							<input type="reset" value="cancelar"/>
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+				<div id="errorblock" style="border-style: dashed;border-color: red;margin: 10px;padding: 10px;position:absolute;width: 200px;top:40px;right:0px;left:330px;" class="errorblock" th:if="${#fields.hasErrors('*')}">
+        			<ul>
+            			<li th:each="err : ${#fields.errors('*')}" th:text="${err} " style="color: #ff0000;">Datos incorrectos</li>
+        			</ul>
+    			</div> 
+	 		</form>
+		</div>
+	</p>
 </div>
-	
-</div>		
+		
 </div>	
 </body>
 </html>
