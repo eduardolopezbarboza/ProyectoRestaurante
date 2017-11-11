@@ -1,5 +1,7 @@
 package pe.usmp.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 
 
@@ -17,7 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @Table(name = "persona")
 
-public class Persona {
+public class Persona implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
